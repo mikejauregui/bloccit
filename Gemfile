@@ -30,3 +30,5 @@ end
  gem 'turbolinks'
  #Bootstrap
  gem 'bootstrap-sass'
+ #Pry
+ gem 'pry-rails', :group => :development
