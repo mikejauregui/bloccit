@@ -15,6 +15,16 @@ posts = Post.all
   )
 end
 
+  Post.find_or_create_by!(
+    title: "This is the newest post, assignment 30",
+    body: "This is the body of the newest post from the assignment 30."
+)
+
+  Comment.find_or_create_by!(
+    post_id: 101,
+    body: "This is the body of the comment 101, assignment 30 final comment"
+  )
+
 puts "Seed finished"
 puts "#{Post.count} posts created"
 puts "#{Comment.count} comments created"
