@@ -1,0 +1,30 @@
+<h1> New ad</h1>
+<div class="row">
+  <div class="col-md-4">
+    <p>Guidelines for posts</p>
+    <ul>
+      <li>Make sure your add is awesome</li>
+      <li>Avoid typos</li>
+      <li>Be consistent</li>
+    </ul>
+  </div>
+  <div class="col-md-8">
+      <%= form_for @advertisement, url: advertisement_index_path do |form| %>
+        <div class="form-group">
+          <%= form.label :title %>
+          <%= form.text_field :title, class: 'form-control', placeholder: "Enter ad title"%>
+        </div>
+        <div class="form-group">
+          <%= form.label :copy%>
+          <%= form.text_area :copy, rows: 8, class: 'form-control', placeholder: "Enter ad body"%>
+        </div>
+        <div class="form-group">
+          <%= form.label :price%>
+          <%= form.text_area :price, class: 'form-control', placeholder: "Enter ad body"%>
+        </div>
+        <div class="form-group">
+          <%= form.submit "Save", class: 'btn btn-success' %>
+        </div>
+        <% end %>
+  </div>
+</div>
