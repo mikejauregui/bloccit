@@ -19,7 +19,7 @@ end
   Advertisement.create!(
     title: RandomData.random_sentence,
     copy: RandomData.random_paragraph,
-    price: 10
+    price: RandomData.random_number
 )
 end
 advertisements = Advertisement.all

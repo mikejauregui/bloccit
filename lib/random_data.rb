@@ -19,6 +19,12 @@ module RandomData
     sentence.capitalize << "."
   end
 
+  def self.random_number
+    integers =[]
+    rand(1..60)
+    
+    end
+
   def self.random_world
     letters = ('a'..'z').to_a
     letters.shuffle!
