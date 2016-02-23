@@ -7,6 +7,7 @@ RSpec.describe Post, type: :model do
   let(:post) {topic.posts.create!(title: RandomData.random_sentence, body: RandomData.random_paragraph)}
 
   it { is_expected.to belong_to(:topic) }
+  it {is_expected.to have_many(:comments)}
 
   describe "attributes" do
 
