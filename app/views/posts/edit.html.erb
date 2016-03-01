@@ -1,5 +1,5 @@
 <h1>Edit Post</h1>
-
+<% if user_is_authorized_for_topics? || user_moderator_topics?%>
 <div clas="row">
   <div class="col-md-4">
     <p>Guidelines for posts</p>
@@ -9,6 +9,7 @@
        <li>The incessant use of hashtags will get you banned.</li>
      </ul>
   </div>
+  <%end%>
   <div class="col-md-8">
     <%= render partial: 'form', locals: { topic: @post.topic, post: @post } %>
   </div>
