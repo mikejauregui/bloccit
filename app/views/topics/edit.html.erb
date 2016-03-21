@@ -19,7 +19,7 @@
          <%= f.text_area :description, rows: 8, class: 'form-control', placeholder: "Enter topic description" %>
        </div>
        <div class="form-group">
-         <%= render partial: 'labels/form', locals: { f: f, labels: @topic.labels } %>
+
        </div>
        <div class="form-group">
          <%= f.label :public, class: 'checkbox' do %>
@@ -28,5 +28,6 @@
        </div>
        <%= f.submit "Save", class: 'btn btn-success' %>
      <% end %>
+     <%= render partial: 'comments/form', locals: {comment: Comment.new, parent: @topic}%>
    </div>
  </div>

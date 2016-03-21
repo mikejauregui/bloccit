@@ -96,6 +96,7 @@ RSpec.describe CommentsController, type: :controller do
          expect(response).to redirect_to [my_topic, my_post]
        end
      end
+   end
 
      describe "DELETE destroy" do
        it "deletes the comment" do
@@ -110,4 +111,4 @@ RSpec.describe CommentsController, type: :controller do
        end
      end
    end
-end
+ 
