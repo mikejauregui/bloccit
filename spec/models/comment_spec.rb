@@ -28,7 +28,8 @@ RSpec.describe Comment, type: :model do
 
        topic_comment = topic.comments[0]
        post_comment = post.comments[0]
-       expect(topic_comment).to eql(post_comment)
+       expect(topic_comment).to eq(post_comment)
+       expect(topic_comment).to eq(comment)
      end
    end
 end

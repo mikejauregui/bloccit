@@ -12,7 +12,7 @@
      </p>
       <h3>Comments</h3>
         <small class="media-heading">
-          <%= render partial: "comments/comment", locals: {comments: @topic.comments } %>
+          <%= render partial: "comments/comment", locals: {comments: @topic.comments, parent: @topic} %>
           <%= render partial: "comments/form", locals: {comment: Comment.new, parent: @topic} %>
         </small>
       <h3>Posts</h3>
