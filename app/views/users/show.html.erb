@@ -13,17 +13,35 @@
        <div class="media-body">
          <h2 class="media-heading"><%= @user.name %></h2>
          <small>
-           <%= pluralize(@user.posts.count, 'post') %>,
-           <%= pluralize(@user.comments.count, 'comment') %>
+
+            <%= pluralize(@user.posts.count, 'post') %>,
+            <%= pluralize(@user.comments.count, 'comment') %>,
+            <%= pluralize(@user.favorites.count, 'favorite') %>
+
          </small>
        </div>
      </div>
    </div>
  </div>
 
-
- <h2>Posts</h2>
- <%= render @user.posts %>
-
- <h2>Comments</h2>
+<h2><%= @user.name %>'s Posts</h2>
+<% if @user.posts.count > 0%>
+<%= render @user.posts %>
+<% else  %>
+<%= "#{@user.name} has not submitted any posts yet."%>
+ <% end %>
+<h2><%= @user.name %>'s Comments</h2>
+<% if @user.comments.count > 0%>
  <%= render @user.comments %>
+ <% else  %>
+ <%= "#{@user.name} has not submitted any comments yet."%>
+ <% end %>
+<h2><%= @user.name %>'s Favorites</h2>
+<% if @user.favorites.count > 0%>
+<% @user.favorites.each do |favorite| %>
+<div><%= image_tag favorite.post.user.avatar_url(48) %> Title: <%=favorite.post.title %>  Author: <%=favorite.post.user.name %>, Votes: <%=favorite.post.votes.count %>, Comments: <%=favorite.post.comments.count %></br></div>
+<% #render partial: 'favorites/favorite', locals: { post: favorite.post } %>
+<%end%>
+ <% else  %>
+ <%= "#{@user.name} does not have any favorites yet."%>
+ <% end %>

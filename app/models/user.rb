@@ -24,9 +24,9 @@ class User < ActiveRecord::Base
 
   enum role: [:member, :admin]
 
-  def favorite_for(post)
-     favorites.where(post_id: post.id).first
-   end
+  def post_for(post)
+    return favorites.where(post_id: post.id).first
+  end
 
    def avatar_url(size)
      gravatar_id = Digest::MD5::hexdigest(self.email).downcase
