@@ -7,19 +7,19 @@ RSpec.describe VotesController, type: :controller do
   let(:my_user) { create(:user) }
   let(:other_user) { create(:user) }
   let(:user_post) { create(:post, topic: my_topic, user: other_user) }
-  
+
 
   context "guest" do
      describe "POST up_vote" do
        it "redirects the user to the sign in view" do
-         post :up_vote, post_id: user_post.id
+         post :up_vote, format: :js, post_id: user_post.id
          expect(response).to redirect_to(new_session_path)
        end
      end
 
      describe "POST down_vote" do
        it "redirects the user to the sign in view" do
-         delete :down_vote, post_id: user_post.id
+         delete :down_vote, format: :js, post_id: user_post.id
          expect(response).to redirect_to(new_session_path)
        end
      end
